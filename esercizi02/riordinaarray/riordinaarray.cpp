@@ -1,16 +1,23 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include "printArray.hpp"
 using namespace std;
 
 int main()
 {
+    srand(42);
     int const n=20;
     int nums[n];
     
-    cout<<"Inserisci i valori dell'array"<<endl;
-    for(int i=0; i<20; i++)
+    //uso un algoritmo che genera causalmente i valori dell'array
+    for (int i=0; i<n; i++)
     {
-        cin>>nums[i];
+        nums[i]=rand()%100+1;
     }
+    
+    printArray(nums, 20);
+    cout<<endl;
     
     //uso un algoritmo che parte dagli ultimi elementi dell'array, ordinandoli, per poi proseguire fino ad arrivare ai primi elementi
     int val;
@@ -28,10 +35,8 @@ int main()
     }
     
     //stampo l'array riordinato
-    for(int m=0; m<20; m++)
-    {
-        cout<<nums[m]<<", ";
-    }
+    printArray(nums, 20);
+    cout<<endl;
     
     return 0;
 }
